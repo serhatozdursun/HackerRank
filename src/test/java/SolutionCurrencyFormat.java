@@ -16,7 +16,7 @@ public class SolutionCurrencyFormat {
         Locale indiaLocale = new Locale("en", "IN");
 
         var us = NumberFormat.getCurrencyInstance(US).format(payment);
-        var india = NumberFormat.getCurrencyInstance(indiaLocale).format(payment).replaceAll("U+20B9","Rs.");
+        var india = NumberFormat.getCurrencyInstance(indiaLocale).format(payment);
         var china = NumberFormat.getCurrencyInstance(CHINA).format(payment);
         var france = NumberFormat.getCurrencyInstance(FRANCE).format(payment);
 

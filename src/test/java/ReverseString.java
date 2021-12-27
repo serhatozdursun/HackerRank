@@ -1,3 +1,4 @@
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.Stack;
@@ -8,39 +9,38 @@ public class ReverseString {
 
 
     public String reversString(String reversableString) {
-        if (reversableString == null || reversableString.isBlank()) {
+        if (reversableString == null || reversableString.equals("")) {
             return reversableString;
         }
 
         Stack<Character> stack = new Stack<>();
-        char[] chars = reversableString.toCharArray();
-        for (Character _char : chars) {
-            stack.push(_char);
-        }
 
+        char[] charOfString = reversableString.toCharArray();
+        for (Character c : charOfString) {
+            stack.push(c);
+        }
         int j = 0;
-        while (!stack.empty()){
-            chars[j++] = stack.pop();
+        while (!stack.empty()) {
+            charOfString[j++] = stack.pop();
         }
-
-        return String.valueOf(chars);
+        return String.valueOf(charOfString);
     }
 
 
     @Test
-    public void emptStringRevers(){
-        assertEquals("",reversString(""));
+    public void emptStringRevers() {
+        assertEquals("", reversString(""));
     }
 
     @Test
-    public void nullStringRevers(){
-        assertEquals(null,reversString(null));
+    public void nullStringRevers() {
+        Assertions.assertNull(reversString(null));
     }
 
     @Test
-    public void reversString(){
+    public void reversString() {
         String string = "srever";
-        assertEquals("revers",reversString(string));
+        assertEquals("revers", reversString(string));
     }
 
 }

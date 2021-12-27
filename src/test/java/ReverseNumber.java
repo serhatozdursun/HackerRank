@@ -1,9 +1,5 @@
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Scanner;
-import java.util.stream.Collectors;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -20,15 +16,14 @@ public class ReverseNumber {
 
     public int reverseNumberBuffer(int number) {
         String stringValueOfNumber = String.valueOf(number);
-        StringBuffer builder = new StringBuffer(stringValueOfNumber);
-        builder.reverse();
-        stringValueOfNumber = new String(builder);
+        StringBuilder buffer = new StringBuilder(stringValueOfNumber);
+        buffer.reverse();
+        stringValueOfNumber = new String(buffer);
         return Integer.parseInt(stringValueOfNumber);
     }
 
     public static int reverseNo(int number) {
         int reversed = 0;
-
         while (number != 0) {
             int digit = number % 10;
             reversed = reversed * 10 + digit;

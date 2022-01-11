@@ -55,6 +55,7 @@ public class BalancedParentheses {
 
     @Test
     public void balancedCase() {
+
         assertTrue(isBalancedParentheses("[()]{}{[()()]()}"));
     }
 

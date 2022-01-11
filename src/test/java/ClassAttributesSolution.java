@@ -3,7 +3,6 @@ import java.util.Arrays;
 
 public class ClassAttributesSolution {
 
-
     public static void main(String[] args) {
         Class<Student> classOfStudent = Student.class;
         var methods = classOfStudent.getDeclaredMethods();

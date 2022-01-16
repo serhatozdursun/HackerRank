@@ -16,6 +16,6 @@ public class Staircase {
 
     @Test
     public void test() {
-        staircase(6);
+        staircase(5);
     }
 }

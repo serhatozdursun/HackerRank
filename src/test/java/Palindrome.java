@@ -1,5 +1,4 @@
-import java.io.*;
-import java.util.*;
+import java.util.Scanner;
 
 public class Palindrome {
 
@@ -19,14 +18,21 @@ public class Palindrome {
 
     static boolean isPalindrome(String str)
     {
-        int i = 0, j = str.length() - 1;
+        int i=0, j = str.length()-1;
+
         while (i < j) {
-            if (str.charAt(i) != str.charAt(j))
+            if (str.charAt(i) != str.charAt(j)){
                 return false;
+            }
             i++;
             j--;
         }
+
         return true;
     }
 
+    static boolean isPalindrome2(String str)
+    {
+        return str.contentEquals(new StringBuilder(str).reverse());
+    }
 }

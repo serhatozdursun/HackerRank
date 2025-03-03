@@ -12,9 +12,9 @@ public class SolutionAnagramCase {
         System.out.println("Please type text ab:");
         String b = scanner.nextLine();
 
-        if (1 > a.length()
+        if (a.isEmpty()
                 || 50 < a.length()
-                || 1 > b.length()
+                || b.isEmpty()
                 || 50 < b.length())
             throw new IllegalArgumentException("Its out of bound");
 
@@ -35,7 +35,6 @@ public class SolutionAnagramCase {
             System.out.println("Anagrams");
         else
             System.out.println("Not Anagrams");
-
     }
 
 }

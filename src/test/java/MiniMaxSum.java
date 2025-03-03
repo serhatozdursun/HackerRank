@@ -4,6 +4,8 @@ import java.math.BigInteger;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class MiniMaxSum {
 
     public static void miniMaxSum(List<Integer> arr) {
@@ -19,5 +21,9 @@ public class MiniMaxSum {
     public void test() {
         var arr = new Integer[]{256741038, 623958417, 467905213, 714532089, 938071625};
         miniMaxSum(List.of(arr));
+        String test = "";
+        test = null;
+        assertTrue(test.isEmpty());
+        assertTrue(test != null);
     }
 }

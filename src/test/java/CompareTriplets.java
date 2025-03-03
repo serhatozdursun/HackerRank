@@ -5,9 +5,6 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.joining;
-import static java.util.stream.Collectors.toList;
-
 public class CompareTriplets {
 
     public static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
@@ -28,27 +25,26 @@ public class CompareTriplets {
 
 class CompareTripletsSolutions {
     public static void main(String[] args) throws IOException {
-        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+        try (BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+             BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("./output.txt"))) {
 
-        List<Integer> a = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            List<Integer> a = convertLineToIntegerList(bufferedReader.readLine());
+            List<Integer> b = convertLineToIntegerList(bufferedReader.readLine());
+
+            List<Integer> result = CompareTriplets.compareTriplets(a, b);
+
+            String joinedResult = result.stream()
+                    .map(Object::toString)
+                    .collect(Collectors.joining(" "));
+
+            bufferedWriter.write(joinedResult);
+            bufferedWriter.newLine();
+        }
+    }
+
+    private static List<Integer> convertLineToIntegerList(String line) {
+        return Stream.of(line.trim().split("\\s+"))
                 .map(Integer::parseInt)
-                .collect(toList());
-
-        List<Integer> b = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
-                .map(Integer::parseInt)
-                .collect(toList());
-
-        List<Integer> result = CompareTriplets.compareTriplets(a, b);
-
-        bufferedWriter.write(
-                result.stream()
-                        .map(Object::toString)
-                        .collect(joining(" "))
-                        + "\n"
-        );
-
-        bufferedReader.close();
-        bufferedWriter.close();
+                .collect(Collectors.toList());
     }
 }

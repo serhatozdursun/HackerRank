@@ -6,9 +6,11 @@ public class ContentExtractor {
 
     public static void main(String[] args){
         Scanner scan = new Scanner(System.in);
+        System.out.println("how many test case will run");
         int testCases = Integer.parseInt(scan.nextLine());
 
         while (testCases-- > 0) {
+            System.out.println("pleas type the text to check");
             String line = scan.nextLine();
 
             boolean matchFound = false;

@@ -1,6 +1,5 @@
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Map;
 
 public class TwoSum {
 
@@ -8,18 +7,18 @@ public class TwoSum {
         var nums = new int[]{3,2,3};
         int target = 6;
         var result = twoSum(nums, target);
-        Arrays.stream(result).forEach(System.out::println);
+        System.out.println(STR."[\{result[0]}, \{result[1]}]");  // Output: [0, 1]
     }
 
     public static int[] twoSum(int[] nums, int target) {
-        HashMap<Integer, Integer> map = new HashMap<>();
-
+        Map<Integer, Integer> numMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i])) {
-                return new int[] {map.get(nums[i]), i};
+            int complement = target - nums[i];
+            if (numMap.containsKey(complement)) {
+                return new int[] {numMap.get(complement), i};
             }
-            map.put(target - nums[i], i);
+            numMap.put(nums[i], i);
         }
-        return new int[0];
+        return new int[]{};
     }
 }

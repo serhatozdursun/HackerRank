@@ -13,17 +13,17 @@ public class ReverseString {
             return reversableString;
         }
 
-        Stack<Character> stack = new Stack<>();
-
-        char[] charOfString = reversableString.toCharArray();
-        for (Character c : charOfString) {
-            stack.push(c);
+        Stack<Character> characterStack = new Stack<>();
+        char[] chars = reversableString.toCharArray();
+        for (char c : chars) {
+            characterStack.push(c);
         }
         int j = 0;
-        while (!stack.empty()) {
-            charOfString[j++] = stack.pop();
+        while (!characterStack.isEmpty()) {
+            chars[j++] = characterStack.pop();
         }
-        return String.valueOf(charOfString);
+
+        return new String(chars);
     }
 
 

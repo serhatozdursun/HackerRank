@@ -35,7 +35,6 @@ public class SolutionAnagramCase {
             System.out.println("Anagrams");
         else
             System.out.println("Not Anagrams");
-
     }
 
 }

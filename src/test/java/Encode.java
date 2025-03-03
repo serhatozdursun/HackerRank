@@ -22,10 +22,6 @@ public class Encode {
     }
 
     private static String encodeValue(String value) {
-        try {
-            return URLEncoder.encode(value, StandardCharsets.UTF_8.toString());
-        } catch (UnsupportedEncodingException e) {
-            throw new RuntimeException(e);
-        }
+        return URLEncoder.encode(value, StandardCharsets.UTF_8);
     }
 }

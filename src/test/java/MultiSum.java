@@ -1,6 +1,6 @@
-import java.io.*;
-import java.util.*;
-import java.util.stream.*;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class MultiSum {
     public static void main(String args[] ) throws Exception {

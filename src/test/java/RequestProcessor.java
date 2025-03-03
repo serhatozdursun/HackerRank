@@ -1,14 +1,14 @@
 import org.apache.commons.codec.binary.Hex;
 import org.junit.jupiter.api.Test;
 
-import java.nio.charset.StandardCharsets;
-import java.security.spec.KeySpec;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
+import javax.crypto.Mac;
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
+import java.nio.charset.StandardCharsets;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.KeySpec;
 import java.util.Base64;
 
 public class RequestProcessor {
@@ -60,16 +60,16 @@ public class RequestProcessor {
     public String processRequest(String requestBodyNoWhitespace, String userId){
         String hashInput = requestBodyNoWhitespace + userId;
 
-        byte[] hashInputBytes = new byte[0];
+        byte[] hashInputBytes;
         try {
-            hashInputBytes = hashInput.getBytes("UTF-8");
+            hashInputBytes = hashInput.getBytes(StandardCharsets.UTF_8);
             //System.out.println(hashInputBytes);
         } catch (Exception e) {
             System.out.println("Error caused by unrecognised encoding");
             throw new RuntimeException(e.getMessage());
         }
 
-        byte[] hashOutputBytes = new byte[0];
+        byte[] hashOutputBytes;
         try {
             hashOutputBytes = getHash(theSecretKeyAsArray, hashInputBytes);
         } catch (Exception e) {
@@ -77,7 +77,6 @@ public class RequestProcessor {
             throw new RuntimeException(e.getMessage());
         }
 
-        String hashOutputHexString = Hex.encodeHexString(hashOutputBytes);
         return Base64.getEncoder().encodeToString(hashOutputBytes);
     }
 
